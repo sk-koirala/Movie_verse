@@ -1,0 +1,42 @@
+# === Paths ===
+paths:
+  # Zip file containing the dataset (update if you place movies.zip elsewhere)
+  zip_path: "./movies.zip"   # if you put movies.zip in the project root
+  # Where raw files will be extracted
+  raw_dir: "./data/raw"
+  # Sample CSV created for quick testing
+  sample_csv: "./data/sample/movies_dataset_sample.csv"
+  # Processed outputs (parquet + csvs)
+  processed_dir: "./data/processed"
+
+# === Extraction ===
+extract:
+  make_sample: true
+  sample_rows: 20000
+
+# === Transform ===
+transform:
+  # Use the smaller sample for development/testing (recommended)
+  use_sample_only: true
+  # Original file name expected inside the zip
+  csv_filename_inside_zip: "movies_dataset.csv"
+  # CSV read options
+  csv_options:
+    header: true
+    inferSchema: true
+    multiLine: true
+    escape: '"'
+
+# === Load / Database ===
+db:
+  host: "localhost"
+  port: 5432
+  database: "movies"
+  user: "etl_user"
+  password: "etl_pass"
+  # Optional: set from env vars instead (DB_HOST, DB_PORT, DB_NAME, DB_USER, DB_PASS)
+
+# === App ===
+app:
+  page_title: "Movies ETL Dashboard"
+  min_ratings_per_movie: 10
