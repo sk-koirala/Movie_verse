@@ -1,6 +1,8 @@
 # Movies ETL Project (PySpark + PostgreSQL) — End‑to‑End
 
-This repository contains a **complete ETL pipeline** for a (very large) movies ratings dataset packaged as `movies.zip`. It also ships with a **small sample** so you can try everything quickly. The pipeline is split exactly like your screenshot:
+This repository contains a **complete ETL pipeline** for a (very large) movies ratings dataset packaged as `movies.zip`. It also ships with a **small sample** so you can try everything quickly. The dataset link is given below:
+
+https://www.kaggle.com/datasets/chaitanyahivlekar/large-movie-dataset
 
 ```
 ETL/
@@ -182,29 +184,3 @@ Install them with `pip install -r requirements.txt`:
 
 ---
 
-## ❓FAQ
-
-**I don’t have Docker, can I still use this?**  
-Yes. Install PostgreSQL manually and make sure it’s running on port 5432. Update `config/config.yaml` with your credentials.
-
-**Where are the logs?**  
-In the project root: `extract.log`, `transform.log`, `load.log`
-
-**Where do outputs go?**  
-Spark writes outputs under `data/processed/`:
-- `movies_clean.parquet`
-- `genre_stats_csv/`
-- `year_stats_csv/`
-- `top_movies_csv/`
-
-**It says Java not found.**  
-Install OpenJDK 11 and restart your terminal.
-
-**I want to change the number of sample rows.**  
-Edit `extract.sample_rows` in `config/config.yaml`.
-
----
-
-## 📜 License
-
-For educational use. You can customize and publish your improvements on your GitHub.
